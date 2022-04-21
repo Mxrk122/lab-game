@@ -1,13 +1,16 @@
-.app {
-    display: grid;
-    grid-template-columns: repeat();
-    grid-template-rows: repeat();
-    background-image: url("../img/wall1.png");
+@font-face{
+    font-family: 'MyFont';
+    src: url('../fonts/Streetbomber.ttf');
+  }
+
+html {
+  background: #222122;
+    
 }
 
-@font-face {
-    font-family: 'MyFont';
-    src: url('../fonts/Streetbomber.ttf') format('ttf');
-    font-weight: 600;
-    font-style: normal;
-    border-radius: 10px;}
+
+
+h1 {
+  font-family: 'MyFont';
+  
+}

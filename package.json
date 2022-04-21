@@ -2,7 +2,7 @@
   "name": "lab-game",
   "version": "1.0.0",
   "description": "un juego sobre un laberinto realizado en elecntroon.js y react.js",
-  "main": "public/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
@@ -23,11 +23,12 @@
   "dependencies": {
     "@babel/runtime": "^7.17.9",
     "@emotion/react": "^11.9.0",
+    "concurrently": "^7.1.0",
     "electron-is-dev": "^2.0.0",
+    "file-loader": "^6.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "wait-on": "^6.0.1",
-    "concurrently": "^7.1.0"
+    "wait-on": "^6.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -37,6 +38,7 @@
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
     "electron": "^18.0.4",
+    "electron-packager": "^15.5.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.50.1",
     "sass-loader": "^12.6.0",

@@ -5,6 +5,9 @@ import React from "react"
 import ReactDOM from "react-dom"
 import Tablero from './components/tablero.js'
 import { app, h1, input, button } from "./styles.js"
+import example from "./styles/example.css"
+import WinPoster from './components/WinPoster.js'
+import logo from './img/logo.png'
 
 // Metodo para crear laberintos
 const crearLaberinto = async (w, h) => {
@@ -28,9 +31,14 @@ const crearLaberinto = async (w, h) => {
 const App = () => {
 
     // Cambiar el tamaño del laberinto
-    const [laberinto, setLaberinto] = React.useState([])
+    const [laberinto, setLaberinto] = React.useState(null)
     const [height, setHeight] = React.useState(4)
     const [weight, setWeight] = React.useState(4)
+
+    // Estado para controlar si gano o no
+    const [winner, setWinner] = React.useState(false)
+    const win = () => setWinner(true)
+    const playing = () => setWinner(false)
 
     const setW = (val) => {
         // Al cambiar el valor del input se actualizar el valor
@@ -51,27 +59,40 @@ const App = () => {
         // Esta funcion solicita un cambio ene l laberinto
         const newLaberinto = await crearLaberinto( weight, height )
         setLaberinto(newLaberinto)
+        playing()
     }
+
+    // Esta funcion se mandara al tablero para que se pueda actualizar el laberinto
+    const updateLabyrinth = async (newLab) => {
+
+      
+      setLaberinto(newLab)
+    }
+
+ 
+
 
     return (
       <div className="app" css={app}>
-        <h1 css={h1}>Graffity Labyrinth</h1>
+        <img src = {logo} alt = "logo" css = {h1}></img>
         <input
           type="number"
-          placeholder="ingresa el tamaño"
+          placeholder="ingresa el alto"
           onChange={setH}
           css = {input}
         ></input>
         <input
           type="number"
-          placeholder="ingresa el tamaño"
+          placeholder="ingresa el ancho"
           onChange={setW}
           css = {input}
         ></input>
         <button onClick={changeLab} css = {button}>¡Crear un laberinto!</button>
-        <Tablero laberinto={laberinto} weight={weight} height={height} />
+        { winner && <WinPoster />}
+        { // Un truquitop para no mostrar cosas jejej
+        laberinto && <Tablero laberinto={laberinto} weight={weight} height={height} updateLabyrinth = {updateLabyrinth} win = {win}/>}
       </div>
-    );
+    );  
 }
 
 //Renderiza app y lo pone en el div "root"

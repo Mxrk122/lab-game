@@ -10,20 +10,14 @@ const app = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Helvetica, Sans-Serif;
     color: white;
 `
 
 export {app};
 
 const h1 = css`
-
-    @font-face {
-    font-family: 'myfont';
-    src: url('../fonts/Streetbomber.ttf') format('ttf');
-    font-weight: 600;
-    font-style: normal;
-}   
+margin-top: none;
+width: 400px;
 `
 export {h1}
 
@@ -39,6 +33,7 @@ border-image: linear-gradient(to right, #DDD31B, #F20F50, #00E1FE) 1;
 background: rgba(20, 20, 20, .2);
 color: white;
 outline: none;
+
 
 &:disabled {
     pointer-events: none;
@@ -67,7 +62,7 @@ cursor: pointer;
 font-size: 16px;
 font-weight: 600;
 line-height: normal;
-margin: 0;
+margin: 5px;
 min-height: 60px;
 min-width: 0;
 padding: 16px 24px;
